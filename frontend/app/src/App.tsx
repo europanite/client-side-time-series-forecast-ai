@@ -36,6 +36,12 @@ import {
 } from "chart.js";
 import type { ChartData, ChartOptions } from "chart.js";
 
+type SemanticPressableProps = React.ComponentProps<typeof Pressable> & {
+  role?: "link" | "button";
+  "aria-label"?: string;
+};
+const SemanticPressable = Pressable as React.ComponentType<SemanticPressableProps>;
+
 ChartJS.register(
   LineElement,
   PointElement,
