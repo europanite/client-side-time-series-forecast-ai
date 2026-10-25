@@ -23,6 +23,7 @@ import { forecastTimesFMNext16, hasTimesFMModelSource, releaseTimesFM } from "./
 import { DEFAULT_FORECAST_HORIZON } from "./forecast-config";
 import { buildForecastExportRows, saveForecastCSV, saveForecastXLSX,
   type ForecastBand } from "./forecast-export";
+import { playClickSound, shouldPlayClickFor } from "./click-feedback";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -47,6 +48,7 @@ ChartJS.register(
 
 type LineDataset = ChartData<"line">["datasets"][number];
 type ModelKind = "xgboost" | "xgboost_bag2" | "lightgbm" | "lightgbm_bag2" | "varma" | "chronos" | "timesfm" | "ridge";
+type BusyAction = "load" | "train" | "forecast" | "export-csv" | "export-xlsx" | null;
 
 
 export default function App() {
@@ -55,12 +57,20 @@ export default function App() {
   const [target, setTarget] = useState<string | null>(null);
   const [modelKind, setModelKind] = useState<ModelKind>("xgboost");
   const [timesFMFile, setTimesFMFile] = useState<File | null>(null);
-  const [predicting, setPredicting] = useState(false);
+  const [busyAction, setBusyAction] = useState<BusyAction>(null);
+  const busyActionRef = useRef<BusyAction>(null);
+  const predicting = busyAction === "forecast";
+  const training = busyAction === "train";
+  const busy = busyAction !== null;
   // Default to direct 16-step forecasting; recursive is an advanced setting.
   const [strategy, setStrategy] = useState<"recursive" | "direct">("direct");
   // Generic series may be zero or negative, so price level stays the default.
   const [directTargetMode, setDirectTargetMode] = useState<DirectTargetMode>("price");
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [buttonSoundsEnabled, setButtonSoundsEnabled] = useState(() => {
+    try { return window.localStorage.getItem("forecast-button-sounds") !== "off"; }
+    catch { return true; }
+  });
   const effectiveStrategy: ForecastStrategy =
     modelKind === "varma" ? "joint" : (modelKind === "chronos" || modelKind === "timesfm") ? "direct" : strategy;
   const [model, setModel] = useState<any>(null);
@@ -70,6 +80,21 @@ export default function App() {
   const manualFileSelected = useRef(false);
 
   useEffect(() => () => { void releaseTimesFM(); }, []);
+
+  useEffect(() => {
+    try { window.localStorage.setItem("forecast-button-sounds", buttonSoundsEnabled ? "on" : "off"); }
+    catch { /* Some browsers disable local storage; sound still works this session. */ }
+  }, [buttonSoundsEnabled]);
+
+  useEffect(() => {
+    if (!buttonSoundsEnabled) return;
+    const handleButtonClick = (event: MouseEvent) => {
+      if (shouldPlayClickFor(event.target)) playClickSound();
+    };
+    // Native buttons, react-native-web Pressables, and keyboard activation all fire click.
+    document.addEventListener("click", handleButtonClick, true);
+    return () => document.removeEventListener("click", handleButtonClick, true);
+  }, [buttonSoundsEnabled]);
 
   useEffect(() => {
     return () => {
@@ -125,86 +150,107 @@ export default function App() {
     e: React.ChangeEvent<HTMLInputElement>
   ): Promise<void> {
     const file = e.target.files?.[0];
-    if (!file) return;
+    if (!file || busyActionRef.current) return;
     manualFileSelected.current = true;
 
-    setStatus(`reading ${file.name} ...`);
+    await runBusyAction("load", async () => {
+      setStatus(`reading ${file.name} ...`);
 
-    const ext = file.name.toLowerCase().split(".").pop();
-    try {
-      if (ext === "csv") {
-        const text = await file.text();
-        const loaded = await loadFromCSV(text);
-        setData(loaded);
-        setTarget(guessTarget(loaded));
-        setStatus("data loaded");
-      } else if (ext === "xlsx") {
-        const buf = await file.arrayBuffer();
-        const loaded = await loadFromXLSX(buf);
-        setData(loaded);
-        setTarget(guessTarget(loaded));
-        setStatus("data loaded");
-      } else {
-        throw new Error("Unsupported file type (use .csv or .xlsx)");
+      const ext = file.name.toLowerCase().split(".").pop();
+      try {
+        if (ext === "csv") {
+          const text = await file.text();
+          const loaded = await loadFromCSV(text);
+          setData(loaded);
+          setTarget(guessTarget(loaded));
+          setStatus("data loaded");
+        } else if (ext === "xlsx") {
+          const buf = await file.arrayBuffer();
+          const loaded = await loadFromXLSX(buf);
+          setData(loaded);
+          setTarget(guessTarget(loaded));
+          setStatus("data loaded");
+        } else {
+          throw new Error("Unsupported file type (use .csv or .xlsx)");
+        }
+
+        setModel(null);
+        setForecast("");
+        setForecastPoints([]);
+        setForecastBands(null);
+      } catch (err: any) {
+        setStatus(`error: ${err.message || String(err)}`);
       }
-
-      setModel(null);
-      setForecast("");
-      setForecastPoints([]);
-      setForecastBands(null);
-    } catch (err: any) {
-      setStatus(`error: ${err.message || String(err)}`);
-    }
+    });
   }
 
   function guessTarget(loaded: LoadedData): string | null {
     return loaded.headers.find((h) => h !== loaded.datetimeKey) ?? null;
   }
 
+  async function runBusyAction(action: Exclude<BusyAction, null>, work: () => Promise<void>): Promise<void> {
+    // The ref locks immediately, before React has rendered the disabled button.
+    if (busyActionRef.current) return;
+    busyActionRef.current = action;
+    setBusyAction(action);
+    try {
+      // Yield one short frame so even synchronous models show the disabled state.
+      await new Promise<void>((resolve) => window.setTimeout(resolve, 20));
+      await work();
+    } catch (err: any) {
+      setStatus(`error: ${err.message || String(err)}`);
+    } finally {
+      busyActionRef.current = null;
+      setBusyAction(null);
+    }
+  }
+
   async function handleTrain(): Promise<void> {
-    if (!data || !target) return;
+    if (!data || !target || busyActionRef.current) return;
 
     if (modelKind === "chronos" || modelKind === "timesfm") {
       setStatus(`${modelKind} is pretrained; training is not required`);
       return;
     }
 
-    setStatus("training ...");
-    try {
-      const trainedModel =
-        (modelKind === "xgboost" || modelKind === "xgboost_bag2" || modelKind === "lightgbm" || modelKind === "lightgbm_bag2" || modelKind === "ridge") &&
-        effectiveStrategy === "direct"
-          ? await trainDirectForecast(data, target, modelKind as SupervisedModelKind,
-              DEFAULT_FORECAST_HORIZON, (done, total) => setStatus(`training direct ${done}/${total} ...`),
-              directTargetMode)
-        : modelKind === "varma"
-          ? trainVarmaModel(data)
-          : modelKind === "xgboost_bag2"
-            ? await trainXGBoostBaggedModel(data, target)
-          : modelKind === "lightgbm"
-            ? await trainLightGBMModel(data, target)
-          : modelKind === "lightgbm_bag2"
-            ? await trainLightGBMBaggedModel(data, target)
-          : modelKind === "ridge"
-            ? trainRidgeModel(data, target)
-          : await trainModel(data, target);
-      setModel(trainedModel);
-      setForecast("");
-      setForecastPoints([]);
-      setForecastBands(null);
-      setStatus(`${modelKind} (${effectiveStrategy}) trained`);
-    } catch (err: any) {
-      setStatus(`error: ${err.message || String(err)}`);
-    }
+    await runBusyAction("train", async () => {
+      setStatus("training ...");
+      try {
+        const trainedModel =
+          (modelKind === "xgboost" || modelKind === "xgboost_bag2" || modelKind === "lightgbm" || modelKind === "lightgbm_bag2" || modelKind === "ridge") &&
+          effectiveStrategy === "direct"
+            ? await trainDirectForecast(data, target, modelKind as SupervisedModelKind,
+                DEFAULT_FORECAST_HORIZON, (done, total) => setStatus(`training direct ${done}/${total} ...`),
+                directTargetMode)
+          : modelKind === "varma"
+            ? trainVarmaModel(data)
+            : modelKind === "xgboost_bag2"
+              ? await trainXGBoostBaggedModel(data, target)
+            : modelKind === "lightgbm"
+              ? await trainLightGBMModel(data, target)
+            : modelKind === "lightgbm_bag2"
+              ? await trainLightGBMBaggedModel(data, target)
+            : modelKind === "ridge"
+              ? trainRidgeModel(data, target)
+            : await trainModel(data, target);
+        setModel(trainedModel);
+        setForecast("");
+        setForecastPoints([]);
+        setForecastBands(null);
+        setStatus(`${modelKind} (${effectiveStrategy}) trained`);
+      } catch (err: any) {
+        setStatus(`error: ${err.message || String(err)}`);
+      }
+    });
   }
 
   async function handlePredict(): Promise<void> {
     if (!data || !target) return;
     if (modelKind !== "chronos" && modelKind !== "timesfm" && !model) return;
-    if (predicting) return;
+    if (busyActionRef.current) return;
 
+    await runBusyAction("forecast", async () => {
     if (modelKind === "timesfm") {
-      setPredicting(true);
       setStatus("loading TimesFM 2.5 ...");
       try {
         const result = await forecastTimesFMNext16(data, target, timesFMFile,
@@ -221,7 +267,7 @@ export default function App() {
         setStatus(`predicted ${DEFAULT_FORECAST_HORIZON} steps with TimesFM 2.5`);
       } catch (err: any) {
         setStatus(`error: ${err.message || String(err)}`);
-      } finally { setPredicting(false); }
+      }
       return;
     }
 
@@ -281,21 +327,24 @@ export default function App() {
     } catch (err: any) {
       setStatus(`error: ${err.message || String(err)}`);
     }
+    });
   }
 
   async function handleExport(format: "csv" | "xlsx"): Promise<void> {
-    if (!target || !forecastPoints.length || predicting) return;
-    const rows = buildForecastExportRows(forecastPoints, {
-      model: modelKind, strategy: effectiveStrategy, target,
-    }, forecastBands);
-    const basename = `forecast_${modelKind}_${new Date().toISOString().slice(0, 10)}`;
-    try {
-      if (format === "csv") saveForecastCSV(rows, basename);
-      else await saveForecastXLSX(rows, basename);
-      setStatus(`forecast exported as ${format.toUpperCase()}`);
-    } catch (err: any) {
-      setStatus(`export error: ${err.message || String(err)}`);
-    }
+    if (!target || !forecastPoints.length || busyActionRef.current) return;
+    await runBusyAction(`export-${format}`, async () => {
+      try {
+        const rows = buildForecastExportRows(forecastPoints, {
+          model: modelKind, strategy: effectiveStrategy, target,
+        }, forecastBands);
+        const basename = `forecast_${modelKind}_${new Date().toISOString().slice(0, 10)}`;
+        if (format === "csv") saveForecastCSV(rows, basename);
+        else await saveForecastXLSX(rows, basename);
+        setStatus(`forecast exported as ${format.toUpperCase()}`);
+      } catch (err: any) {
+        setStatus(`export error: ${err.message || String(err)}`);
+      }
+    });
   }
 
   const chart = buildChartData(data, target, forecastPoints);
@@ -303,8 +352,8 @@ export default function App() {
     "https://github.com/europanite/client-side-time-series-forecast-ai";
 
   const isPretrained = modelKind === "chronos" || modelKind === "timesfm";
-  const canTrain = !!data && !!target && !isPretrained && !predicting;
-  const canForecast = !!data && !!target && !predicting &&
+  const canTrain = !!data && !!target && !isPretrained && !busy;
+  const canForecast = !!data && !!target && !busy &&
     (modelKind === "chronos" ||
       (modelKind === "timesfm" && hasTimesFMModelSource(timesFMFile)) ||
       !!model);
@@ -319,6 +368,7 @@ export default function App() {
       }}
     >
       <Pressable
+        accessibilityRole="link"
         onPress={() =>
           window.open(REPO_URL, "_blank", "noopener,noreferrer")
         }
@@ -357,6 +407,7 @@ export default function App() {
         <input
           type="file"
           accept=".csv,.xlsx"
+          disabled={busy}
           onChange={handleFileChange}
           style={{
             padding: 10,
@@ -393,6 +444,7 @@ export default function App() {
       >
         <Text style={{ color: "#e5e7eb", fontSize: 16 }}>Target:</Text>
         <select
+          disabled={busy}
           value={target ?? ""}
           onChange={(e) => {
             setTarget(e.target.value || null);
@@ -423,7 +475,7 @@ export default function App() {
 
         <Text style={{ color: "#e5e7eb", fontSize: 16 }}>Model:</Text>
         <select
-          disabled={predicting}
+          disabled={busy}
           value={modelKind}
           onChange={(e) => {
             if (modelKind === "timesfm" && e.target.value !== "timesfm") {
@@ -456,6 +508,7 @@ export default function App() {
         </select>
 
         <Pressable
+          accessibilityRole="button"
           onPress={handleTrain}
           disabled={!canTrain}
           style={{
@@ -463,16 +516,17 @@ export default function App() {
             paddingVertical: 8,
             paddingHorizontal: 16,
             borderRadius: 999,
-            backgroundColor: canTrain ? "#22c55e" : "#371f1f",
-            opacity: canTrain ? 1 : 0.4,
+            backgroundColor: training ? "#166534" : canTrain ? "#22c55e" : "#371f1f",
+            opacity: training ? 0.9 : canTrain ? 1 : 0.4,
           }}
         >
-          <Text style={{ color: "#020817", fontWeight: "600", fontSize: 16 }}>
-            {isPretrained ? "Pretrained" : "Train"}
+          <Text style={{ color: training ? "#f0fdf4" : "#020817", fontWeight: "600", fontSize: 16 }}>
+            {training ? "Training" : isPretrained ? "Pretrained" : "Train"}
           </Text>
         </Pressable>
 
         <Pressable
+          accessibilityRole="button"
           onPress={handlePredict}
           disabled={!canForecast}
           style={{
@@ -480,15 +534,16 @@ export default function App() {
             paddingVertical: 8,
             paddingHorizontal: 16,
             borderRadius: 999,
-            backgroundColor: canForecast ? "#38bdf8" : "#371f1f",
-            opacity: canForecast ? 1 : 0.4,
+            backgroundColor: predicting ? "#075985" : canForecast ? "#38bdf8" : "#371f1f",
+            opacity: predicting ? 0.9 : canForecast ? 1 : 0.4,
           }}
         >
-          <Text style={{ color: "#020817", fontWeight: "600", fontSize: 16 }}>
+          <Text style={{ color: predicting ? "#f0f9ff" : "#020817", fontWeight: "600", fontSize: 16 }}>
             {predicting ? "Running ..." : `Forecast +${DEFAULT_FORECAST_HORIZON}`}
           </Text>
         </Pressable>
         <Pressable
+          accessibilityRole="button"
           onPress={() => setSettingsOpen(true)}
           accessibilityLabel="Open settings"
           style={{ paddingVertical: 8, paddingHorizontal: 14,
@@ -502,7 +557,7 @@ export default function App() {
       {modelKind === "timesfm" && (
         <div style={{ width: "100%", maxWidth: 960, color: "#e5e7eb", marginBottom: 14 }}>
           <label htmlFor="timesfm-model">TimesFM 2.5 ONNX model (optional: select local .onnx): </label>
-          <input id="timesfm-model" type="file" accept=".onnx" disabled={predicting}
+          <input id="timesfm-model" type="file" accept=".onnx" disabled={busy}
             onChange={(event) => {
               const selected = event.currentTarget.files?.[0] ?? null;
               setTimesFMFile(selected);
@@ -557,6 +612,17 @@ export default function App() {
               </button>
             </div>
             <h3 style={{ fontSize: 17, marginTop: 28, marginBottom: 12 }}>
+              Interaction feedback
+            </h3>
+            <label style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}>
+              <input type="checkbox" checked={buttonSoundsEnabled}
+                onChange={(event) => setButtonSoundsEnabled(event.target.checked)} />
+              Button click sounds
+            </label>
+            <p style={{ color: "#cbd5e1", fontSize: 14, marginTop: 8 }}>
+              Short, locally generated clicks. No sound file or network request is needed.
+            </p>
+            <h3 style={{ fontSize: 17, marginTop: 28, marginBottom: 12 }}>
               Advanced forecasting
             </h3>
             <label htmlFor="forecast-strategy" style={{ display: "block", marginBottom: 8 }}>
@@ -572,6 +638,7 @@ export default function App() {
               <>
                 <select
                   id="forecast-strategy"
+                  disabled={busy}
                   value={strategy}
                   onChange={(event) => {
                     setStrategy(event.target.value as "recursive" | "direct");
@@ -593,6 +660,7 @@ export default function App() {
                       Direct prediction target
                     </label>
                     <select id="direct-target-mode" value={directTargetMode}
+                      disabled={busy}
                       onChange={(event) => {
                         setDirectTargetMode(event.target.value as DirectTargetMode);
                         setModel(null);
@@ -657,10 +725,14 @@ export default function App() {
         <div className="forecast-results-heading">
           <h2 id="results-section-title" className="forecast-section-heading">4. Forecast results</h2>
           <div className="forecast-export-actions" aria-label="Download forecast results">
-            <button type="button" disabled={!forecastPoints.length || predicting}
-              onClick={() => { void handleExport("csv"); }}>Export CSV</button>
-            <button type="button" disabled={!forecastPoints.length || predicting}
-              onClick={() => { void handleExport("xlsx"); }}>Export XLSX</button>
+            <button type="button" disabled={!forecastPoints.length || busy}
+              onClick={() => { void handleExport("csv"); }}>
+              {busyAction === "export-csv" ? "Exporting ..." : "Export CSV"}
+            </button>
+            <button type="button" disabled={!forecastPoints.length || busy}
+              onClick={() => { void handleExport("xlsx"); }}>
+              {busyAction === "export-xlsx" ? "Exporting ..." : "Export XLSX"}
+            </button>
           </div>
         </div>
         {forecastPoints.length ? (
