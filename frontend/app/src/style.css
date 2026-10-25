@@ -8,6 +8,37 @@
 body { margin: 0; background: #000; color: #e5e7eb; line-height: 1.5; }
 #app { width: 100%; }
 
+/* A small physical press, shared by native buttons and RNW Pressables. */
+#app button, #app [role="button"], #app [role="link"] {
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 100ms ease-out, filter 100ms ease-out, box-shadow 100ms ease-out;
+}
+#app button:disabled, #app [role="button"][aria-disabled="true"] {
+  cursor: not-allowed;
+}
+#app button:not(:disabled):active,
+#app [role="button"]:not([aria-disabled="true"]):active,
+#app [role="link"]:active {
+  transform: translateY(2px) scale(.98);
+  filter: brightness(.9);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, .3);
+}
+#app button:focus-visible,
+#app [role="button"]:focus-visible,
+#app [role="link"]:focus-visible {
+  outline: 3px solid #7dd3fc;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  #app button, #app [role="button"], #app [role="link"] {
+    transition: none;
+  }
+  #app button:active, #app [role="button"]:active, #app [role="link"]:active {
+    transform: none;
+  }
+}
+
 .forecast-panel {
   width: 100%;
   max-width: 960px;
