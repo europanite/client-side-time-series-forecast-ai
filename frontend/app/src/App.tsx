@@ -368,7 +368,7 @@ export default function App() {
       }}
     >
       <Pressable
-        accessibilityRole="link"
+        role="link"
         onPress={() =>
           window.open(REPO_URL, "_blank", "noopener,noreferrer")
         }
@@ -508,7 +508,7 @@ export default function App() {
         </select>
 
         <Pressable
-          accessibilityRole="button"
+          role="button"
           onPress={handleTrain}
           disabled={!canTrain}
           style={{
@@ -526,7 +526,7 @@ export default function App() {
         </Pressable>
 
         <Pressable
-          accessibilityRole="button"
+          role="button"
           onPress={handlePredict}
           disabled={!canForecast}
           style={{
@@ -543,9 +543,9 @@ export default function App() {
           </Text>
         </Pressable>
         <Pressable
-          accessibilityRole="button"
+          role="button"
           onPress={() => setSettingsOpen(true)}
-          accessibilityLabel="Open settings"
+          aria-label="Open settings"
           style={{ paddingVertical: 8, paddingHorizontal: 14,
             borderRadius: 8, borderWidth: 1, borderColor: "#64748b",
             backgroundColor: "#111827" }}
