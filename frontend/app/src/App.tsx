@@ -367,7 +367,7 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <Pressable
+      <SemanticPressable
         role="link"
         onPress={() =>
           window.open(REPO_URL, "_blank", "noopener,noreferrer")
@@ -387,7 +387,7 @@ export default function App() {
         <Text style={{ color: "#ffffffff", marginBottom: 16, fontSize: 16, lineHeight: 24 }}>
           A browser-based multivariate time series forecasting tool. No installation, No registration, or No payment is required.
         </Text>
-      </Pressable>
+      </SemanticPressable>
 
       {/* File input */}
       <section className="forecast-panel" aria-labelledby="data-section-title">
@@ -507,7 +507,7 @@ export default function App() {
           <option value="ridge">Ridge</option>
         </select>
 
-        <Pressable
+        <SemanticPressable
           role="button"
           onPress={handleTrain}
           disabled={!canTrain}
@@ -523,9 +523,9 @@ export default function App() {
           <Text style={{ color: training ? "#f0fdf4" : "#020817", fontWeight: "600", fontSize: 16 }}>
             {training ? "Training" : isPretrained ? "Pretrained" : "Train"}
           </Text>
-        </Pressable>
+        </SemanticPressable>
 
-        <Pressable
+        <SemanticPressable
           role="button"
           onPress={handlePredict}
           disabled={!canForecast}
@@ -541,8 +541,8 @@ export default function App() {
           <Text style={{ color: predicting ? "#f0f9ff" : "#020817", fontWeight: "600", fontSize: 16 }}>
             {predicting ? "Running ..." : `Forecast +${DEFAULT_FORECAST_HORIZON}`}
           </Text>
-        </Pressable>
-        <Pressable
+        </SemanticPressable>
+        <SemanticPressable
           role="button"
           onPress={() => setSettingsOpen(true)}
           aria-label="Open settings"
@@ -551,7 +551,7 @@ export default function App() {
             backgroundColor: "#111827" }}
         >
           <Text style={{ color: "#e5e7eb", fontSize: 16 }}>⚙ Settings</Text>
-        </Pressable>
+        </SemanticPressable>
       </View>
 
       {modelKind === "timesfm" && (
