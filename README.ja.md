@@ -25,8 +25,7 @@
 
 ## 40-Second Demo
 
-[![▶ Watch the 40-second demo](https://img.youtube.com/vi/EWZhwyfPohU/hqdefault.jpg)](https://youtu.be/EWZhwyfPohU)
-
+[![▶ Watch the 40-second demo](https://img.youtube.com/vi/AUFat22QJHE/hqdefault.jpg)](https://youtu.be/AUFat22QJHE)
 ## PlayGround
 
 [▶ Open the browser-based forecasting app](https://europanite.github.io/client-side-time-series-forecast-ai/)
