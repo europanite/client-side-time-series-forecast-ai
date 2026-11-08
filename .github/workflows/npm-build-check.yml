@@ -1,0 +1,48 @@
+name: npm Build Check
+
+# The existing CI workflow already builds on push and pull_request.
+# Keep this workflow manual to avoid running the same build twice.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: npm-build-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  npm-build:
+    name: Frontend npm build (Node.js 24)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: frontend/app
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: frontend/app/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check
+        run: npx tsc --noEmit
+
+      - name: Build with Vite
+        run: npm run build
+
+      - name: Check build output
+        run: test -s dist/index.html
+
+      - name: Upload build output
+        uses: actions/upload-artifact@v6

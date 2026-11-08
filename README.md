@@ -70,6 +70,51 @@ Everything happens **inside your browser**. There is no backend API and no data 
 
 ---
 
+# 🚀 Getting Started
+
+## npm
+
+### 1. Prerequisites
+- Node.js
+
+### 2. Build services:
+
+```bash
+cd frontend/app
+npm ci
+npm run dev
+```
+
+### 3. Test:
+
+```bash
+npm test -- --ci --runInBand --coverage --verbose
+npx tsc --noEmit
+npm run build
+```
+
+## Docker Compose
+
+### 1. Prerequisites
+- [Docker Compose](https://docs.docker.com/compose/)
+
+### 2. Build services:
+
+```bash
+docker compose up --build
+```
+
+### 3. Test:
+
+```bash
+docker compose \
+-f docker-compose.test.yml up \
+--build --exit-code-from \
+frontend_test
+```
+
+---
+
 ## Data Structure
 
 <pre>
@@ -460,34 +505,6 @@ The buildFeatures function therefore returns:
   y: number[];          // target series values for those steps
   lastFeatureRow: number[]; // feature vector representing t + 1
 }
-```
-
----
-
-
-## 🚀 Getting Started
-
-### 1. Prerequisites
-- [Docker Compose](https://docs.docker.com/compose/)
-
-### 2. Build and start all services:
-
-```bash
-
-# Build the image
-docker compose build
-
-# Run the container
-docker compose up
-
-```
-
-### 3. Test:
-```bash
-docker compose \
--f docker-compose.test.yml up \
---build --exit-code-from \
-frontend_test
 ```
 
 ---
