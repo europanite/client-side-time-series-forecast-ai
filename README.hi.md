@@ -1,3 +1,15 @@
+<p align="right">
+  <a href="./README.md">🇺🇸 English</a> |
+  <a href="./README.hi.md">🇮🇳 हिंदी </a> |
+  <a href="./README.ja.md">🇯🇵 日本語</a> |
+  <a href="./README.zh-CN.md">🇨🇳 简体中文</a> |
+  <a href="./README.es.md">🇪🇸 Español</a> |
+  <a href="./README.pt-BR.md">🇧🇷 Português (Brasil)</a> |
+  <a href="./README.ko.md">🇰🇷 한국어</a> |
+  <a href="./README.de.md">🇩🇪 Deutsch</a> |
+  <a href="./README.fr.md">🇫🇷 Français</a>
+</p>
+
 # [Client-Side Time-Series Forecast AI](https://github.com/europanite/client-side-time-series-forecast-ai "Client-Side Time-Series Forecast AI")
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -11,47 +23,32 @@
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 
 
-<p align="right">
-  <a href="./README.md">🇺🇸 English</a> |
-  <a href="./README.hi.md">🇮🇳 हिंदी </a> |
-  <a href="./README.ja.md">🇯🇵 日本語</a> |
-  <a href="./README.zh-CN.md">🇨🇳 简体中文</a> |
-  <a href="./README.es.md">🇪🇸 Español</a> |
-  <a href="./README.pt-BR.md">🇧🇷 Português (Brasil)</a> |
-  <a href="./README.ko.md">🇰🇷 한국어</a> |
-  <a href="./README.de.md">🇩🇪 Deutsch</a> |
-  <a href="./README.fr.md">🇫🇷 Français</a>
-</p>
 
-## 40-Second Demo
+## 40 सेकंड का डेमो
 
-[![▶ Watch the 40-second demo](https://img.youtube.com/vi/AUFat22QJHE/hqdefault.jpg)](https://youtu.be/AUFat22QJHE)
+[![▶ 40 सेकंड का डेमो देखें](https://img.youtube.com/vi/AUFat22QJHE/hqdefault.jpg)](https://youtu.be/AUFat22QJHE)
 
-## PlayGround
+## प्लेग्राउंड
 
-[▶ Open the browser-based forecasting app](https://europanite.github.io/client-side-time-series-forecast-ai/)
+[▶ ब्राउज़र में चलने वाला फ़ोरकास्टिंग ऐप खोलें](https://europanite.github.io/client-side-time-series-forecast-ai/)
 
+यह पूरी तरह ब्राउज़र में चलने वाला क्लाइंट-साइड टाइम-सीरीज़ फ़ोरकास्टिंग AI टूल है। यह पूरी तरह मुफ़्त और सुरक्षित है, क्योंकि सारा प्रोसेसिंग आपके ब्राउज़र में ही होता है।
 
-XGBoost, LightGBM, एक प्रायोगिक VARMA-शैली मॉडल और Chronos-2 द्वारा संचालित क्लाइंट-साइड, ब्राउज़र-आधारित टाइम-सीरीज़ फ़ोरकास्ट प्लेग्राउंड।
-
-ऐप CSV या XLSX फ़ाइल लोड करता है, datetime और संख्यात्मक कॉलम का पता लगाता है, आपको फ़ोरकास्टिंग मॉडल चुनने देता है, और देखे गए मानों तथा 16-स्टेप फ़ोरकास्ट दोनों को विज़ुअलाइज़ करता है। आपका डेटा आपके ब्राउज़र में ही रहता है।
+आप [XGBoost](https://xgboost.readthedocs.io/en/stable/), XGBoost Bagging ×2, [LightGBM](https://lightgbm.readthedocs.io/), LightGBM Bagging ×2, प्रयोगात्मक VARMA-जैसा मॉडल, [Chronos-2](https://github.com/amazon-science/chronos-forecasting), [TimesFM 2.5](https://github.com/google-research/timesfm) और Ridge रिग्रेशन में से चुन सकते हैं।
 
 ---
 
-## अवलोकन
+## परिचय
 
-यह एक बहुवेरिएट टाइम-सीरीज़ फ़ोरकास्टिंग टूल है जो पूरी तरह आपके वेब ब्राउज़र में चलता है।
-किसी इंस्टॉलेशन, रजिस्ट्रेशन या भुगतान की आवश्यकता नहीं है। 
-बस इसे अपने ब्राउज़र में खोलें और उपयोग शुरू करें।
-यह छोटे व्यवसायों को अगले दिन के ऑर्डर का अनुमान लगाने में मदद करता है।
+यह मल्टीवेरिएट टाइम-सीरीज़ फ़ोरकास्टिंग टूल पूरी तरह आपके वेब ब्राउज़र में काम करता है। इंस्टॉल, रजिस्टर या भुगतान करने की ज़रूरत नहीं। ब्राउज़र में खोलते ही इसका उपयोग शुरू कर सकते हैं। यह छोटे व्यवसायों को अगले दिन के ऑर्डर का अनुमान लगाने में मदद करता है।
 
 - ब्राउज़र में CSV/XLSX टाइम-सीरीज़ डेटासेट लोड करें
-- किसी भी संख्यात्मक कॉलम को फ़ोरकास्ट टार्गेट के रूप में चुनें
-- XGBoost, LightGBM, एक प्रायोगिक VARMA-शैली मॉडल और pretrained Chronos-2 में से चुनें
-- चुने गए मॉडल को ब्राउज़र में स्थानीय रूप से ट्रेन करें
-- अगले 16 पॉइंट का फ़ोरकास्ट करें और उन्हें चार्ट में जोड़ें
+- किसी भी संख्यात्मक कॉलम को पूर्वानुमान के लक्ष्य के रूप में चुनें
+- XGBoost, XGBoost Bagging ×2, LightGBM, LightGBM Bagging ×2, प्रयोगात्मक VARMA-जैसे मॉडल, पहले से प्रशिक्षित Chronos-2 और TimesFM 2.5, तथा Ridge रिग्रेशन में से चुनें
+- चुने हुए मॉडल को ब्राउज़र में स्थानीय रूप से प्रशिक्षित करें
+- अगले 16 डेटा बिंदुओं का पूर्वानुमान लगाकर चार्ट में जोड़ें
 
-सब कुछ **आपके ब्राउज़र के अंदर** होता है। कोई backend API नहीं है और कोई डेटा आपकी मशीन से बाहर नहीं जाता।
+सब कुछ **आपके ब्राउज़र के भीतर** होता है। कोई बैकएंड API नहीं है और आपका डेटा आपकी मशीन से बाहर नहीं जाता।
 
 ---
 
@@ -60,14 +57,59 @@ XGBoost, LightGBM, एक प्रायोगिक VARMA-शैली मॉ�
 1. GitHub Pages डेमो खोलें:  
    https://europanite.github.io/client-side-time-series-forecast-ai/
 
-2. [`data/sample_data.csv`](./data/datsample_data.csv) या [`data/sample_data.xlsx`](./data/sample_data.xlsx) जैसी सैंपल फ़ाइल अपलोड करें।
-3. ऐप:
-   - एक **datetime-जैसे कॉलम** का पता लगाएगा
-   - उपलब्ध संख्यात्मक कॉलम सूचीबद्ध करेगा
-4. एक संख्यात्मक कॉलम को **target** के रूप में चुनें।
-5. एक **forecast model** चुनें। `XGBoost` डिफ़ॉल्ट है, `LightGBM` एक वैकल्पिक स्थानीय रूप से प्रशिक्षित GBDT है, `VARMA experimental` एक हल्का multivariate baseline है, और `Chronos-2 pretrained` एक zero-shot foundation model है।
-6. XGBoost, LightGBM या VARMA के लिए पहले **Train** पर क्लिक करें। Chronos-2 पहले से pretrained है और इसे स्थानीय training की आवश्यकता नहीं है। फिर अगले 16 पॉइंट का अनुमान लगाने के लिए **Forecast +16** पर क्लिक करें।
-7. observed series और forecast line की तुलना करने के लिए चार्ट देखें।
+2. [`data/sample_data.csv`](./data/sample_data.csv) (शेयर कीमतें) या [`data/sample_data.xlsx`](./data/sample_data.xlsx) (सिंथेटिक मल्टीवेरिएट नमूना) जैसी फ़ाइल अपलोड करें।
+3. ऐप यह करेगा:
+   - **दिनांक-समय जैसे कॉलम** का पता लगाएगा
+   - उपलब्ध संख्यात्मक कॉलम दिखाएगा
+4. एक संख्यात्मक कॉलम को **लक्ष्य** के रूप में चुनें।
+5. **पूर्वानुमान मॉडल** चुनें। डिफ़ॉल्ट `XGBoost` है; `XGBoost Bagging ×2` बूटस्ट्रैप से प्रशिक्षित दो XGBoost रिग्रेसरों का औसत लेता है; `LightGBM` स्थानीय रूप से प्रशिक्षित एक अन्य GBDT है; `LightGBM Bagging ×2` दो बूटस्ट्रैप LightGBM रिग्रेसरों का औसत लेता है; `VARMA experimental` हल्का मल्टीवेरिएट बेसलाइन है; `Chronos-2 pretrained` ज़ीरो-शॉट फ़ाउंडेशन मॉडल है; `TimesFM 2.5` वैकल्पिक ज़ीरो-शॉट ONNX मॉडल है; और `Ridge` स्थानीय रूप से प्रशिक्षित लीनियर बेसलाइन है।
+6. XGBoost, XGBoost Bagging ×2, LightGBM, LightGBM Bagging ×2, VARMA या Ridge के लिए पहले **Train** क्लिक करें। Chronos-2 और TimesFM 2.5 पहले से प्रशिक्षित हैं और इन्हें स्थानीय प्रशिक्षण नहीं चाहिए। फिर अगले 16 बिंदुओं के पूर्वानुमान के लिए **Forecast +16** क्लिक करें।
+7. चार्ट में देखे गए डेटा और पूर्वानुमान रेखा की तुलना करें।
+
+---
+
+# 🚀 शुरुआत करें
+
+## npm
+
+### 1. आवश्यक शर्तें
+- Node.js
+
+### 2. सेवाएँ बिल्ड करें:
+
+```bash
+cd frontend/app
+npm ci
+npm run dev
+```
+
+### 3. टेस्ट करें:
+
+```bash
+npm test -- --ci --runInBand --coverage --verbose
+npx tsc --noEmit
+npm run build
+```
+
+## Docker Compose
+
+### 1. आवश्यक शर्तें
+- [Docker Compose](https://docs.docker.com/compose/)
+
+### 2. सेवाएँ बिल्ड करें:
+
+```bash
+docker compose up --build
+```
+
+### 3. टेस्ट करें:
+
+```bash
+docker compose \
+-f docker-compose.test.yml up \
+--build --exit-code-from \
+frontend_test
+```
 
 ---
 
@@ -83,261 +125,291 @@ datetime,item_a,item_b,item_c,...
 
 ### आवश्यकताएँ:
 
-##### एक datetime-जैसा कॉलम
-कॉलम हेडर में "date" या "time" होता है (case-insensitive)।
-इसे time axis के रूप में उपयोग किया जाता है, लेकिन सीधे numeric features में नहीं बदला जाता।
+##### एक दिनांक-समय जैसा कॉलम
+कॉलम हेडर में "date" या "time" होना चाहिए (बड़े-छोटे अक्षरों का अंतर नहीं)।
+इसे समय अक्ष के लिए उपयोग किया जाता है, लेकिन सीधे संख्यात्मक फ़ीचर में नहीं बदला जाता।
 
 ##### एक या अधिक संख्यात्मक कॉलम
-इन कॉलमों का उपयोग target और/या exogenous features के रूप में किया जाता है।
-ऐप तीन स्थानीय रूप से फिट किए जाने वाले forecasting modes का समर्थन करता है:
+इन्हें लक्ष्य और/या बाहरी (exogenous) फ़ीचर के रूप में उपयोग किया जाता है।
+ऐप स्थानीय रूप से फ़िट होने वाले छह पूर्वानुमान मोड का समर्थन करता है:
 
-- **XGBoost**: आप एक संख्यात्मक कॉलम को target के रूप में चुनते हैं, और अन्य संख्यात्मक कॉलम अतिरिक्त signals के रूप में उपयोग होते हैं।
-- **LightGBM**: XGBoost के समान target और engineered multivariate features का उपयोग करता है, लेकिन LightGBM regressor फिट करता है।
-- **VARMA experimental**: सभी संख्यात्मक कॉलमों को साथ में मॉडल किया जाता है, और चुना गया target column forecast output के रूप में दिखाया जाता है।
+- **XGBoost**: आप एक संख्यात्मक कॉलम को लक्ष्य चुनते हैं और अन्य कॉलम अतिरिक्त संकेत देते हैं।
+- **XGBoost Bagging ×2**: समान सुपरवाइज़्ड फ़ीचरों के स्वतंत्र बूटस्ट्रैप नमूनों पर दो XGBoost मॉडल प्रशिक्षित कर उनके आउटपुट का औसत लेता है। सीधे 16-स्टेप मोड में 32 बूस्टर फ़िट होते हैं।
+- **LightGBM Bagging ×2**: XGBoost Bagging ×2 जैसी बूटस्ट्रैप प्रक्रिया से दो LightGBM मॉडल प्रशिक्षित कर पूर्वानुमान का औसत लेता है। सीधे 16-स्टेप मोड में 32 बूस्टर फ़िट होते हैं।
+- **LightGBM**: XGBoost वाले लक्ष्य और इंजीनियर किए गए मल्टीवेरिएट फ़ीचर उपयोग करता है, लेकिन LightGBM रिग्रेसर फ़िट करता है।
+- **VARMA experimental**: सभी संख्यात्मक कॉलम संयुक्त रूप से मॉडल करता है और चुने हुए लक्ष्य कॉलम का पूर्वानुमान दिखाता है।
+- **Ridge**: XGBoost और LightGBM जैसे ही इंजीनियर किए गए फ़ीचर तथा रिकर्सिव पूर्वानुमान पथ पर स्थानीय रूप से रेगुलराइज़्ड लीनियर रिग्रेशन फ़िट करता है।
 
 ---
 
-## फ़ोरकास्टिंग दृष्टिकोण
+<!-- ALL_MODEL_EVALUATION:START -->
+### सभी आठ मॉडल — ब्राउज़र में समान होल्डआउट परीक्षण (2026-10-30 तक)
 
-यह प्रोजेक्ट जानबूझकर अलग-अलग मान्यताओं वाले चार forecasting algorithms उपलब्ध कराता है:
+हर सेक्टर में पिछले 256 क्लोज़िंग प्राइस से समान अगले 16 ट्रेडिंग सत्रों का पूर्वानुमान लगाया जाता है। MAPE जितना कम हो, उतना अच्छा। पाँच सुपरवाइज़्ड मॉडल **Direct price** (ब्राउज़र डिफ़ॉल्ट) उपयोग करते हैं; VARMA संयुक्त रिकर्सिव पूर्वानुमान करता है; Chronos-2 और TimesFM 2.5 केवल चुनी हुई लक्ष्य श्रृंखला उपयोग करते हैं। सभी Chromium में चलते हैं, Node में पुनः लागू नहीं किए गए हैं।
 
-| मॉडल | Learning style | क्या कई input series उपयोग होती हैं? | Local training? | Forecast style |
+| मॉडल | वाहन निर्माता MAPE ↓ | बैंक MAPE ↓ | इलेक्ट्रॉनिक्स MAPE ↓ | दूरसंचार MAPE ↓ | व्यापारिक कंपनियाँ MAPE ↓ | औसत MAPE ↓ | औसत sMAPE ↓ |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| xgboost | 3.70% | 6.08% | 7.03% | 1.02% | 2.52% | 4.07% | 4.10% |
+| xgboost_bag2 | 3.61% | 5.83% | 7.44% | 1.06% | 2.77% | 4.14% | 4.18% |
+| lightgbm | 4.07% | 5.95% | 6.48% | 0.96% | 2.51% | 4.00% | 4.02% |
+| lightgbm_bag2 | 3.87% | 6.21% | 7.15% | 1.10% | 2.42% | 4.15% | 4.19% |
+| ridge | 2.69% | 4.35% | 9.98% | 1.34% | 2.56% | 4.18% | 4.29% |
+| varma | 11.83% | 6.14% | 11.33% | 7.34% | 2.20% | 7.77% | 8.12% |
+| chronos | 4.72% | 7.37% | 5.57% | 1.72% | 2.17% | 4.31% | 4.33% |
+| timesfm | 4.58% | 5.22% | 5.07% | 1.92% | 3.01% | 3.96% | 4.01% |
+| last_close | 4.92% | 5.84% | 5.35% | 1.25% | 2.21% | 3.91% | 3.95% |
+
+प्रोटोकॉल: `real-browser-recent-16step-all-eight-v1`; इनपुट SHA256: `bd5150223ed5…`; स्रोत SHA256: `e2e34fbc83b1…`।
+स्कोर पिछली मूल्यांकन-स्नैपशॉट पर आधारित हैं, लाइव पूर्वानुमान के ऑडिट पर नहीं।
+[विधि और पुनरुत्पादन](docs/ALL_MODEL_EVALUATION.md)। पूरे MAE/RMSE, पूर्वानुमान और लगा समय: [`reports/stocks/all-models.json`](reports/stocks/all-models.json)।
+<!-- ALL_MODEL_EVALUATION:END -->
+
+## पूर्वानुमान का तरीका
+
+इस प्रोजेक्ट में अलग-अलग मान्यताओं पर आधारित आठ पूर्वानुमान एल्गोरिदम हैं:
+
+| मॉडल | सीखने का तरीका | कई इनपुट श्रृंखलाएँ? | स्थानीय प्रशिक्षण? | पूर्वानुमान शैली |
 | --- | --- | --- | --- | --- |
-| XGBoost | engineered time-series features पर gradient-boosted decision-tree regression | हाँ | हाँ | Recursive one-step forecasting |
-| LightGBM | XGBoost के समान engineered features पर histogram-based gradient-boosted decision-tree regression | हाँ | हाँ | Recursive one-step forecasting |
-| VARMA experimental | ridge regularization, residual correction और seasonal stabilization के साथ linear multi-output autoregression | हाँ, संयुक्त रूप से | हाँ | Recursive multi-output forecasting |
-| Chronos-2-small INT8 ONNX | Pretrained patch-based time-series foundation model | वर्तमान UI में केवल चुना गया target | नहीं | Direct probabilistic multi-step forecasting |
+| XGBoost | इंजीनियर किए गए टाइम-सीरीज़ फ़ीचरों पर ग्रेडिएंट-बूस्टेड डिसीजन-ट्री रिग्रेशन | हाँ | हाँ | रिकर्सिव या सीधे 16-हॉराइज़न पूर्वानुमान |
+| XGBoost Bagging ×2 | स्वतंत्र बूटस्ट्रैप वाले दो XGBoost रिग्रेसरों के औसत पूर्वानुमान | हाँ | हाँ (हर हॉराइज़न पर 2) | रिकर्सिव या सीधे 16-हॉराइज़न पूर्वानुमान |
+| LightGBM | XGBoost जैसे फ़ीचरों पर हिस्टोग्राम-आधारित ग्रेडिएंट-बूस्टेड ट्री रिग्रेशन | हाँ | हाँ | रिकर्सिव या सीधे 16-हॉराइज़न पूर्वानुमान |
+| LightGBM Bagging ×2 | स्वतंत्र बूटस्ट्रैप वाले दो LightGBM रिग्रेसरों के औसत पूर्वानुमान | हाँ | हाँ (हर हॉराइज़न पर 2) | रिकर्सिव या सीधे 16-हॉराइज़न पूर्वानुमान |
+| VARMA experimental | Ridge रेगुलराइज़ेशन और रेज़िडुअल सुधार वाला लीनियर मल्टी-आउटपुट ऑटोरिग्रेशन | हाँ, संयुक्त रूप से | हाँ | संयुक्त रिकर्सिव मल्टी-आउटपुट पूर्वानुमान |
+| Chronos-2-small INT8 ONNX | पैच-आधारित पहले से प्रशिक्षित टाइम-सीरीज़ फ़ाउंडेशन मॉडल | वर्तमान UI में केवल चुना हुआ लक्ष्य | नहीं | सीधे प्रायिकतामूलक मल्टी-स्टेप पूर्वानुमान |
+| TimesFM 2.5 ONNX | पहले से प्रशिक्षित टाइम-सीरीज़ फ़ाउंडेशन मॉडल (वैकल्पिक बड़ा डाउनलोड) | केवल चुना हुआ लक्ष्य | नहीं | सीधे प्रायिकतामूलक मल्टी-स्टेप पूर्वानुमान |
+| Ridge (linear baseline) | ट्री मॉडल के साझा इंजीनियर फ़ीचरों पर L2-रेगुलराइज़्ड लीनियर रिग्रेशन | हाँ | हाँ | रिकर्सिव या सीधे 16-हॉराइज़न पूर्वानुमान |
 
-इन मॉडलों को एक ही algorithm के चार implementations के रूप में नहीं समझना चाहिए। XGBoost और LightGBM टाइम सीरीज़ को एक ही supervised tabular-learning problem में बदलते हैं, VARMA कई series के lagged vectors को संयुक्त रूप से मॉडल करता है, और Chronos-2 uploaded dataset पर नए parameters फिट किए बिना pretrained neural forecasting model का उपयोग करता है।
+इन मॉडलों को एक ही एल्गोरिदम के आठ कार्यान्वयन न समझें। XGBoost, LightGBM और उनके बैगिंग रूप टाइम-सीरीज़ को समान सुपरवाइज़्ड टैबुलर समस्या में बदलते हैं। VARMA कई श्रृंखलाओं के लैग वेक्टर संयुक्त रूप से मॉडल करता है; Ridge उन्हीं फ़ीचरों पर लीनियर संदर्भ देता है; Chronos-2 और TimesFM 2.5 अपलोड किए गए डेटा पर नए पैरामीटर फ़िट किए बिना प्रीट्रेन्ड न्यूरल मॉडल उपयोग करते हैं।
+
+XGBoost, XGBoost Bagging ×2, LightGBM, LightGBM Bagging ×2 और Ridge के लिए **सीधे 16-स्टेप पूर्वानुमान डिफ़ॉल्ट रणनीति है**। हर भविष्य का स्टेप स्वतंत्र रूप से फ़िट होता है, जिससे दूसरी श्रृंखलाओं के काल्पनिक भविष्य इनपुट नहीं बनाने पड़ते। रिकर्सिव मोड के लिए **Settings → Advanced forecasting → Forecast strategy** खोलें। रिकर्सिव मोड एक मॉडल से 16 स्टेप क्रमशः भविष्यवाणी करता है। VARMA संयुक्त मल्टी-सीरीज़ ऑटोरिग्रेशन उपयोग करता है; Chronos-2 और TimesFM 2.5 प्रीट्रेन्ड होकर सीधे पूर्वानुमान करते हैं। सुपरवाइज़्ड मॉडल की भविष्यवाणियों पर कोई स्थिर मौसमी मिश्रण लागू नहीं किया जाता। [पूर्वानुमान रणनीतियाँ](docs/FORECAST_STRATEGIES.md) देखें।
 
 ### मॉडल चयन
 
 #### XGBoost
 
-`XGBoost` डिफ़ॉल्ट स्थानीय रूप से प्रशिक्षित मॉडल है। XGBoost एक gradient-boosted decision-tree algorithm है: कई decision trees क्रमशः जोड़े जाते हैं, और प्रत्येक नया tree पिछले ensemble की बची हुई त्रुटियों को कम करता है। टाइम सीरीज़ को सीधे XGBoost में पास नहीं किया जाता। यह प्रोजेक्ट पहले प्रत्येक time step को feature vector में बदलता है और फिर XGBoost को regression model के रूप में train करता है।
+`XGBoost` डिफ़ॉल्ट स्थानीय रूप से प्रशिक्षित मॉडल है। यह ग्रेडिएंट-बूस्टेड डिसीजन-ट्री एल्गोरिदम है: कई ट्री क्रम से जोड़े जाते हैं और हर नया ट्री पिछले एन्सेम्बल की बची त्रुटि कम करता है। टाइम-सीरीज़ सीधे XGBoost को नहीं दी जाती; पहले हर समय-बिंदु को फ़ीचर वेक्टर में बदलकर रिग्रेशन मॉडल प्रशिक्षित किया जाता है।
 
-ब्राउज़र implementation में उपयोग होता है:
+ब्राउज़र कार्यान्वयन में उपयोग होता है:
 
-- target और exogenous lags, `MAX_LAG = 3` तक
-- first differences
-- `ROLLING_WINDOW = 7` rolling mean
-- numeric series के बीच spread, ratio और product interactions
-- time index
-- periods 24 और 168 वाले Fourier features
-- depth 4, learning rate 0.1, subsample 0.8 और 200 boosting iterations के साथ `gbtree`
+- लक्ष्य और बाहरी श्रृंखलाओं के `MAX_LAG = 3` तक लैग
+- प्रथम अंतर (first differences)
+- `ROLLING_WINDOW = 7` का रोलिंग मीन
+- संख्यात्मक श्रृंखलाओं के बीच अंतर, अनुपात और गुणनफल के इंटरैक्शन
+- समय सूचकांक
+- अवधि 24 और 168 वाले Fourier फ़ीचर
+- गहराई 4, लर्निंग रेट 0.1, subsample 0.8 और 200 बूस्टिंग चरण वाला `gbtree`
 
-16-step forecast के लिए मॉडल एक बार में एक step predict करता है। हर prediction working history में जोड़ी जाती है और इसलिए अगले step के लिए उपलब्ध होती है। Raw XGBoost prediction को seasonal continuation estimate के साथ blend भी किया जाता है। Non-target numeric context को स्थिर रखने के बजाय आगे बढ़ाया जाता है।
+**recursive** मोड में मॉडल एक-एक स्टेप का अनुमान लगाता है और हर अनुमान अगले स्टेप के इतिहास में जुड़ता है। अन्य श्रृंखलाओं के अज्ञात भविष्य मान हीयूरिस्टिक तरीके से आगे बढ़ाए जाते हैं। **direct** मोड में 16 स्वतंत्र हॉराइज़न मॉडल अंतिम वास्तविक फ़ीचर लेते हैं, इसलिए अन्य श्रृंखलाओं के काल्पनिक भविष्य मान बनाने की ज़रूरत नहीं। स्थिर मौसमी मिश्रण नहीं लगाया जाता।
 
-**मजबूतियाँ**
+**खूबियाँ**
 
-- series के बीच nonlinear relationships और interactions को पकड़ता है
-- प्रोजेक्ट के hand-engineered multivariate features के साथ स्वाभाविक रूप से काम करता है
-- ब्राउज़र में स्थानीय रूप से और अपेक्षाकृत तेज़ी से train होता है
-- बड़े pretrained model download की आवश्यकता नहीं है
+- श्रृंखलाओं के बीच नॉनलाइनियर संबंध और इंटरैक्शन पकड़ता है
+- प्रोजेक्ट के हाथ से बनाए गए मल्टीवेरिएट फ़ीचरों के साथ अच्छा काम करता है
+- ब्राउज़र में स्थानीय रूप से अपेक्षाकृत जल्दी प्रशिक्षित होता है
+- बड़े प्रीट्रेन्ड मॉडल को डाउनलोड करने की ज़रूरत नहीं
 
 **सीमाएँ**
 
-- forecasting quality चुनी गई feature engineering पर निर्भर करती है
-- recursive forecasting में बाद के steps पर errors जमा हो सकती हैं
-- fixed Fourier periods और seasonal continuation application-level assumptions हैं, अपने-आप सीखी गई calendar structure नहीं
+- सटीकता चुनी हुई फ़ीचर इंजीनियरिंग पर निर्भर करती है
+- रिकर्सिव पूर्वानुमान में दूर के स्टेप पर त्रुटियाँ जमा हो सकती हैं
+- Fourier अवधियाँ और मौसमी विस्तार ऐप की मान्यताएँ हैं, स्वतः सीखी गई कैलेंडर संरचना नहीं
 
-XGBoost का उपयोग तब करें जब आपको एक हल्का, स्थानीय रूप से प्रशिक्षित nonlinear model चाहिए जो कई numeric columns के बीच संबंधों का लाभ उठा सके।
+कई संख्यात्मक कॉलमों के संबंधों का लाभ उठाने वाला हल्का, स्थानीय प्रशिक्षण योग्य नॉनलाइनियर मॉडल चाहिए तो XGBoost उपयोग करें।
 
 #### LightGBM
 
-`LightGBM` दूसरा स्थानीय रूप से प्रशिक्षित gradient-boosted decision-tree model है। ब्राउज़र implementation `@wlearn/lightgbm`, यानी LightGBM का WebAssembly build, उपयोग करता है और जानबूझकर XGBoost के समान `buildFeatures()` output तथा 16-step recursive forecasting path को पुनः उपयोग करता है।
+`LightGBM` एक दूसरा स्थानीय रूप से प्रशिक्षित ग्रेडिएंट-बूस्टेड ट्री मॉडल है। ब्राउज़र में LightGBM का WebAssembly बिल्ड `@wlearn/lightgbm` चलता है और जानबूझकर XGBoost वाला `buildFeatures()` आउटपुट तथा 16-स्टेप रणनीतियाँ (रिकर्सिव या डायरेक्ट) पुनः उपयोग करता है।
 
-डिफ़ॉल्ट LightGBM configuration regression, learning rate 0.1, 31 leaves, max depth 4, subsample 0.8 और 200 boosting rounds का उपयोग करती है। Raw tree prediction को XGBoost में उपयोग होने वाले उसी seasonal continuation estimate के साथ blend किया जाता है।
+LightGBM की डिफ़ॉल्ट सेटिंग रिग्रेशन, लर्निंग रेट 0.1, 31 लीफ़, अधिकतम गहराई 4, subsample 0.8 और 200 बूस्टिंग राउंड हैं। कच्चे मॉडल पूर्वानुमान बिना स्थिर मौसमी मिश्रण के उपयोग होते हैं।
 
-LightGBM का उपयोग तब करें जब आप feature pipeline और application-level forecast protocol को स्थिर रखते हुए सीधे तुलना योग्य histogram-based GBDT alternative चाहते हों।
+फ़ीचर पाइपलाइन और ऐप-स्तरीय प्रोटोकॉल समान रखकर हिस्टोग्राम-आधारित GBDT से सीधे तुलना करनी हो तो LightGBM चुनें।
 
-#### VARMA experimental
+#### VARMA प्रयोगात्मक
 
-`VARMA experimental` एक हल्का browser-native multivariate baseline है। नाम के बावजूद यह implementation **पूर्ण statistical maximum-likelihood VARMA estimator नहीं है**। यह एक regularized VAR-style model के अधिक निकट है, जिसमें छोटी residual correction और explicit seasonal stabilization है।
+`VARMA experimental` ब्राउज़र में मूल रूप से चलने वाला हल्का मल्टीवेरिएट बेसलाइन है। नाम के बावजूद यह **पूर्ण सांख्यिकीय मैक्सिमम-लाइकलीहुड VARMA एस्टिमेटर नहीं है**। यह छोटे रेज़िडुअल सुधार और वैकल्पिक मौसमी स्थिरीकरण वाला रेगुलराइज़्ड VAR मॉडल अधिक है।
 
-Implementation:
+कार्यान्वयन:
 
-1. अधिकतम 8 numeric series चुनता है और उन्हें standardize करता है;
-2. पिछले 7 multivariate vectors को जोड़कर एक lag feature vector बनाता है;
-3. multi-output ridge regression (`ridge = 1e-2`) के साथ सभी output series को एक साथ फिट करता है;
-4. हाल के residuals से एक छोटी correction estimate करता है (`maLag = 1`);
-5. forecasting के दौरान autoregressive output को seasonal lag के vector के साथ blend करता है (`seasonalLag = 7`, `seasonalBlend = 0.55`);
-6. predicted vector को recursively अगले forecast step में वापस feed करता है।
+1. अधिकतम 8 संख्यात्मक श्रृंखलाएँ चुनकर मानकीकृत करता है;
+2. पिछले 7 मल्टीवेरिएट वेक्टर जोड़कर लैग फ़ीचर वेक्टर बनाता है;
+3. मल्टी-आउटपुट Ridge रिग्रेशन से सभी आउटपुट श्रृंखलाएँ साथ में फ़िट करता है (`ridge = 1e-2`);
+4. हाल के रेज़िडुअल से छोटा सुधार अनुमानित करता है (`maLag = 1`);
+5. चाहें तो ऑटोरिग्रेसिव आउटपुट को मौसमी लैग वेक्टर से मिलाता है (`seasonalLag = 7`; डिफ़ॉल्ट `seasonalBlend = 0`);
+6. पूर्वानुमान वेक्टर को अगले स्टेप में रिकर्सिव रूप से वापस देता है।
 
-क्योंकि हर step पर पूरा numeric vector predict किया जाता है, VARMA केवल चुने गए target को forecast करने के बजाय सभी modeled series को साथ में आगे बढ़ाता है।
+हर स्टेप पर पूरा संख्यात्मक वेक्टर अनुमानित होता है, इसलिए VARMA केवल चुने हुए लक्ष्य के बजाय सभी मॉडल की गई श्रृंखलाएँ साथ आगे बढ़ाता है।
 
-**मजबूतियाँ**
+**खूबियाँ**
 
-- सरल और computationally inexpensive
-- कई numeric series को संयुक्त रूप से model करता है
-- XGBoost और Chronos-2 के मुकाबले उपयोगी linear/classical-style baseline देता है
-- अलग model download के बिना पूरी तरह TypeScript में चलता है
-
-**सीमाएँ**
-
-- कम से कम दो numeric series और 7 से अधिक usable rows की आवश्यकता होती है
-- मुख्यतः linear lag relationships मानता है
-- residual correction और seasonal blending व्यावहारिक stabilizers हैं, पूर्ण moving-average estimation procedure नहीं
-- इसे statistical VARMA के reference implementation के रूप में प्रस्तुत नहीं किया जाना चाहिए
-
-`VARMA experimental` का उपयोग मुख्यतः transparent multivariate baseline के रूप में करें, जब कई series साथ में चलती हों।
-
-#### Chronos-2 pretrained
-
-`Chronos-2 pretrained` ऊपर के locally fitted models से मूल रूप से अलग है। Chronos-2 एक pretrained, patch-based time-series foundation model है जो सीधे multi-step **quantile forecasts** उत्पन्न करता है। यह repository `Chronos-2-small INT8` को ONNX Runtime Web के साथ ONNX model के रूप में चलाती है, इसलिए model download होने के बाद inference स्थानीय रूप से किया जाता है।
-
-वर्तमान browser integration:
-
-- uploaded dataset पर **train नहीं** करता;
-- Chronos context के रूप में केवल चुनी गई target series का उपयोग करता है;
-- कम से कम 16 numeric target observations की आवश्यकता होती है;
-- अधिकतम 5,760 context observations रखता है;
-- input को 16-point patches में समूहित करता है और अपूर्ण first patch को बाईं ओर `NaN` से pad करता है;
-- ONNX graph का internal 672-step output (`42 × 16`) चलाता है और UI में पहले 16 steps दिखाता है;
-- model का quantile output पढ़ता है और median (`p50`) forecast के साथ `p10` और `p90` uncertainty bounds दिखाता है।
-
-Chronos-2 स्वयं अधिक समृद्ध multivariate और covariate-informed forecasting का समर्थन करता है, लेकिन **वर्तमान UI अभी उन क्षमताओं का उपयोग नहीं करता**। इसलिए वर्तमान Chronos implementation को अन्यथा multivariate application के भीतर pretrained univariate target forecaster के रूप में समझना चाहिए।
-
-**मजबूतियाँ**
-
-- zero-shot forecasting: प्रत्येक dataset के लिए model fitting की आवश्यकता नहीं
-- one-step models को recursively फिट करने के बजाय पूरा forecast horizon सीधे predict करता है
-- forecast quantiles के माध्यम से probabilistic information देता है
-- बड़े पैमाने की pretraining के दौरान सीखे गए patterns को नई series में transfer कर सकता है
+- सरल और कम गणनात्मक खर्च वाला
+- कई संख्यात्मक श्रृंखलाओं को संयुक्त रूप से मॉडल करता है
+- XGBoost और Chronos-2 की तुलना के लिए उपयोगी लीनियर/क्लासिकल बेसलाइन
+- अतिरिक्त मॉडल डाउनलोड के बिना पूरी तरह TypeScript में चलता है
 
 **सीमाएँ**
 
-- पहले उपयोग से पहले model download करना आवश्यक है
-- ब्राउज़र INT8 ONNX export उपयोग करता है, इसलिए results पूर्ण-precision official checkpoint से बिल्कुल मेल खाना आवश्यक नहीं
-- वर्तमान UI Chronos-2 को कॉल करते समय अतिरिक्त numeric columns को ignore करता है
-- browser memory और WASM execution model size और context length पर व्यावहारिक सीमाएँ लगाते हैं
+- कम-से-कम दो संख्यात्मक श्रृंखलाएँ और 7 से अधिक उपयोगी पंक्तियाँ चाहिए
+- लैग संबंध अधिकांशतः लीनियर मानता है
+- रेज़िडुअल सुधार और वैकल्पिक मौसमी मिश्रण हीयूरिस्टिक हैं, पूरा मूविंग-एवरेज आकलन नहीं
+- इसे सांख्यिकीय VARMA का मानक कार्यान्वयन नहीं बताना चाहिए
 
-Repository के वर्तमान AirPassengers 128/16 holdout benchmark में `Chronos-2-small INT8 ONNX` ने comparable models में सबसे कम MAE, RMSE, MAPE, sMAPE और MASE हासिल किए। मापे गए values और evaluation protocol के लिए नीचे benchmark section देखें।
+जब कई श्रृंखलाएँ साथ बदलती हों, `VARMA experimental` को मुख्यतः पारदर्शी मल्टीवेरिएट बेसलाइन के रूप में उपयोग करें।
 
-### 16-step forecast
+#### पहले से प्रशिक्षित Chronos-2
 
-Application-level default horizon 16 है क्योंकि integrated Chronos-2 ONNX model 16-point patches उपयोग करता है, और तुलना के लिए XGBoost, LightGBM तथा VARMA APIs को उसी horizon पर align किया गया है।
+`Chronos-2 pretrained` ऊपर के स्थानीय रूप से फ़िट मॉडल से मूलतः अलग है। Chronos-2 पैच-आधारित प्रीट्रेन्ड टाइम-सीरीज़ फ़ाउंडेशन मॉडल है, जो सीधे कई स्टेप के **क्वांटाइल पूर्वानुमान** देता है। यह रिपॉज़िटरी ONNX Runtime Web से `Chronos-2-small INT8` को ONNX मॉडल के रूप में चलाती है, इसलिए डाउनलोड के बाद इनफ़रेंस स्थानीय होता है।
 
-Algorithms उन 16 points तक अलग-अलग तरीकों से पहुँचते हैं:
+वर्तमान ब्राउज़र इंटीग्रेशन:
 
-- **XGBoost** recursively predict करता है। हर predicted target value अगले step के history का हिस्सा बनती है, जबकि non-target context भी आगे बढ़ता है।
-- **LightGBM** XGBoost के समान engineered feature pipeline और recursive application-level forecast policy का उपयोग करता है।
-- **VARMA experimental** पूरा multivariate vector recursively predict करता है और उस predicted vector को अगले step में feed करता है।
-- **Chronos-2** direct multi-step probabilistic inference करता है और pretrained model output से पहले 16 future positions लौटाता है।
+- अपलोड किए गए डेटासेट पर **प्रशिक्षण नहीं** करता;
+- केवल चुनी हुई लक्ष्य श्रृंखला Chronos कॉन्टेक्स्ट के रूप में लेता है;
+- लक्ष्य की कम-से-कम 16 संख्यात्मक ऑब्ज़र्वेशन चाहिए;
+- अधिकतम 5,760 कॉन्टेक्स्ट ऑब्ज़र्वेशन रखता है;
+- इनपुट को 16-बिंदु पैच में बाँटता है और पहले अधूरे पैच को बाईं ओर `NaN` से भरता है;
+- ONNX ग्राफ़ का आंतरिक 672-स्टेप आउटपुट (`42 × 16`) चलाकर पहले 16 स्टेप UI में दिखाता है;
+- मॉडल के क्वांटाइल से मध्यक (`p50`) पूर्वानुमान और `p10` तथा `p90` अनिश्चितता सीमाएँ दिखाता है।
 
-Models की तुलना करते समय यह अंतर महत्वपूर्ण है: XGBoost, LightGBM और VARMA recursive forecast error जमा कर सकते हैं, जबकि Chronos-2 requested future sequence सीधे generate करता है।
+Chronos-2 स्वयं अधिक समृद्ध मल्टीवेरिएट और कोवेरिएट-आधारित पूर्वानुमान समर्थित करता है, लेकिन **वर्तमान UI अभी इन क्षमताओं का उपयोग नहीं करता**। इसलिए यहाँ इसे अन्यथा मल्टीवेरिएट ऐप के भीतर प्रीट्रेन्ड यूनिवेरिएट लक्ष्य पूर्वानुमानकर्ता समझें।
+
+**खूबियाँ**
+
+- ज़ीरो-शॉट पूर्वानुमान: हर डेटासेट पर अलग मॉडल फ़िट नहीं करना पड़ता
+- एक-स्टेप मॉडल बार-बार चलाने के बजाय पूरा पूर्वानुमान हॉराइज़न सीधे अनुमानित करता है
+- क्वांटाइल के माध्यम से प्रायिकता संबंधी जानकारी देता है
+- बड़े प्रीट्रेनिंग से सीखे पैटर्न नई श्रृंखला पर लागू कर सकता है
+
+**सीमाएँ**
+
+- पहले उपयोग से पहले मॉडल डाउनलोड करना होगा
+- ब्राउज़र INT8 ONNX एक्सपोर्ट उपयोग करता है; परिणाम आधिकारिक पूर्ण-प्रिसिजन चेकपॉइंट से पूरी तरह समान होना आवश्यक नहीं
+- वर्तमान UI, Chronos-2 चलाते समय अतिरिक्त संख्यात्मक कॉलम अनदेखे करता है
+- ब्राउज़र मेमोरी और WASM निष्पादन मॉडल आकार तथा कॉन्टेक्स्ट लंबाई सीमित करते हैं
+
+पहले दर्ज किए गए AirPassengers 128/16 होल्डआउट बेंचमार्क में `Chronos-2-small INT8 ONNX` ने तुलनीय मॉडलों में सबसे कम MAE, RMSE, MAPE, sMAPE और MASE प्राप्त किए। माप और प्रोटोकॉल नीचे देखें। **ये पुराने ऐप संस्करण के ऐतिहासिक नतीजे हैं; संशोधित फ़ीचर और रणनीतियों से तुलना करने के लिए मूल्यांकन दोबारा चलाना ज़रूरी है।**
+
+### 16-स्टेप पूर्वानुमान
+
+ऐप का डिफ़ॉल्ट हॉराइज़न 16 है क्योंकि Chronos-2 ONNX मॉडल 16-बिंदु पैच उपयोग करता है और तुलना के लिए XGBoost, LightGBM तथा VARMA API भी उसी हॉराइज़न पर रखे गए हैं।
+
+एल्गोरिदम 16 बिंदुओं का पूर्वानुमान अलग-अलग तरह से करते हैं:
+
+- **XGBoost, LightGBM और Ridge** एक प्रशिक्षित एक-स्टेप मॉडल से रिकर्सिव या 16 अलग हॉराइज़न मॉडल से सीधे पूर्वानुमान कर सकते हैं।
+- **VARMA experimental** पूरे मल्टीवेरिएट वेक्टर का रिकर्सिव पूर्वानुमान करता है, इसलिए सभी शामिल श्रृंखलाएँ साथ बढ़ती हैं।
+- **Chronos-2** सीधे प्रायिकतामूलक मल्टी-स्टेप इनफ़रेंस करता है और प्रीट्रेन्ड आउटपुट से भविष्य के पहले 16 स्थान लौटाता है।
+
+XGBoost, LightGBM और Ridge में डायरेक्ट रणनीति **डिफ़ॉल्ट** है। रिकर्सिव रणनीति Settings में एडवांस विकल्प है। Settings में डायरेक्ट लक्ष्य को डिफ़ॉल्ट मूल मानों से बदलकर सख्ती से धनात्मक श्रृंखलाओं के संचयी लॉग-रिटर्न भी कर सकते हैं। डायरेक्ट पूर्वानुमान बार-बार कृत्रिम इनपुट बनाने से बचाता है, लेकिन अधिकतम 16 मॉडल फ़िट करने पड़ते हैं। रणनीतियों की तुलना समान आउट-ऑफ़-सैंपल विंडो पर करनी चाहिए; कोई भी बेहतर सटीकता की गारंटी नहीं देती।
 
 ---
 
-## Feature Engineering (XGBoost / LightGBM)
+## फ़ीचर इंजीनियरिंग (XGBoost / LightGBM)
 
-इस section के hand-engineered features XGBoost और LightGBM दोनों pipelines पर लागू होते हैं। VARMA normalized lag vectors का सीधे उपयोग करता है, जबकि Chronos-2 इन features के बिना चुनी गई target sequence पर काम करता है।
+इस खंड के हाथ से बनाए फ़ीचर XGBoost और LightGBM दोनों पाइपलाइन पर लागू होते हैं। VARMA सीधे नॉर्मलाइज़्ड लैग वेक्टर उपयोग करता है, जबकि Chronos-2 इन फ़ीचरों के बिना चुनी हुई लक्ष्य श्रृंखला पर काम करता है।
 
-Tree-boosting pipelines input को छोटी multi-variate time series के रूप में मानती हैं:
+ट्री-बूस्टिंग पाइपलाइन इनपुट को छोटी मल्टीवेरिएट टाइम-सीरीज़ मानती है:
 
-- एक *datetime-like* column (header में किसी भी case में `date` या `time` शामिल हो)।
-- कई numeric columns (जैसे `item_a`, `item_b`, `item_c`, ...)।
-- numeric columns में से एक को forecast करने के लिए **target** चुना जाता है।
+- एक *दिनांक-समय जैसा* कॉलम (हेडर में `date` या `time`, किसी भी केस में)।
+- कई संख्यात्मक कॉलम (जैसे `item_a`, `item_b`, `item_c`, ...)।
+- एक संख्यात्मक कॉलम **पूर्वानुमान लक्ष्य** चुना जाता है।
 
-अंदरूनी रूप से feature builder हर time step `t` के लिए एक **rich feature vector** और `t + 1` के लिए एक **future feature vector** बनाता है। सभी features **पूरी तरह client पर**, JavaScript/TypeScript में compute होते हैं।
+फ़ीचर बिल्डर अंदर हर समय-बिंदु `t` के लिए **समृद्ध फ़ीचर वेक्टर** और `t + 1` के लिए **भविष्य फ़ीचर वेक्टर** बनाता है। सभी फ़ीचर JavaScript/TypeScript में **पूरी तरह क्लाइंट पर** गणना होते हैं।
 
-### Features के लिए उपयोग होने वाली series
+### फ़ीचर के लिए उपयोग की जाने वाली श्रृंखलाएँ
 
 - `datetimeKey`  
-  - `"date"` या `"time"` वाले header से स्वतः detect होता है।
-  - केवल time axis पता करने के लिए उपयोग होता है; सीधे numeric feature के रूप में उपयोग नहीं होता।
+  - `"date"` या `"time"` वाले हेडर से स्वतः पहचान होती है।
+  - केवल समय अक्ष निर्धारित करने के लिए; सीधे संख्यात्मक फ़ीचर नहीं।
 - `targetKey`  
-  - वह numeric column जिसे user forecast करने के लिए चुनता है।
+  - उपयोगकर्ता द्वारा पूर्वानुमान हेतु चुना गया संख्यात्मक कॉलम।
 - `featureKeys`  
-  - अन्य सभी numeric columns (non-datetime, non-target)।
-  - इन्हें **exogenous series** माना जाता है।
+  - अन्य सभी संख्यात्मक कॉलम (दिनांक-समय और लक्ष्य को छोड़कर)।
+  - इन्हें **बाहरी (exogenous) श्रृंखलाएँ** माना जाता है।
 
-अंदरूनी रूप से हम `seriesMap: Record<string, number[]>` रखते हैं, जिसमें प्रत्येक series के लिए एक numeric array होता है।
+अंदर `seriesMap: Record<string, number[]>` हर श्रृंखला के लिए एक संख्यात्मक ऐरे रखता है।
 
-### Per-series features (exogenous series)
+### प्रति-श्रृंखला फ़ीचर (बाहरी श्रृंखलाएँ)
 
-हर exogenous series `x(t)` (`featureKeys` की हर key) और हर time step `t` के लिए हम compute करते हैं:
+हर बाहरी श्रृंखला `x(t)` (`featureKeys` की हर कुंजी) और समय-बिंदु `t` पर गणना होती है:
 
-1. **समकालीन मान**
-   - `x(t)` (time index `t` पर value)।
+1. **उसी समय का मान**
+   - `x(t)` (समय सूचकांक `t` पर मान)।
 
-2. **Lag features (history)**
+2. **लैग फ़ीचर (इतिहास)**
    - `MAX_LAG = 3` तक:
      - `x(t - 1)`
      - `x(t - 2)`
      - `x(t - 3)`
-   - इससे model हर series की short-term temporal dynamics सीख सकता है।
+   - मॉडल हर श्रृंखला की अल्पकालिक समय-गतिशीलता सीख सकता है।
 
-3. **First difference**
+3. **पहला अंतर**
    - `x(t) - x(t - 1)`
-   - केवल absolute level के बजाय local changes (trend / slope) को capture करता है।
+   - केवल पूर्ण स्तर के बजाय स्थानीय बदलाव (रुझान/ढलान) पकड़ता है।
 
-4. **Rolling mean (local average)**
-   - `ROLLING_WINDOW = 7` time steps की rolling window:
-     - `mean(x[t - 6 ... t])` (series की शुरुआत के पास truncated)
-   - local trend / baseline level दर्शाता है और short-term noise को smooth करता है।
+4. **रोलिंग मीन (स्थानीय औसत)**
+   - `ROLLING_WINDOW = 7` समय-बिंदुओं की विंडो:
+     - `mean(x[t - 6 ... t])` (श्रृंखला की शुरुआत में छोटी की जाती है)
+   - स्थानीय रुझान/आधार स्तर दिखाती है और अल्पकालिक शोर घटाती है।
 
-> यदि series window से छोटी है, तो code window को स्वतः छोटा कर देता है ताकि `t` तक उपलब्ध सभी past points उपयोग किए जाएँ।
+> यदि श्रृंखला विंडो से छोटी है, कोड विंडो स्वतः घटाकर `t` तक उपलब्ध सभी पिछले बिंदु उपयोग करता है।
 
-### Target-series history
+### लक्ष्य श्रृंखला का इतिहास
 
-**target series** `y(t)` के लिए हम current value `y(t)` को feature के रूप में शामिल **नहीं** करते (क्योंकि वही उस step का label है), लेकिन उसका history शामिल करते हैं:
+**लक्ष्य श्रृंखला** `y(t)` के वर्तमान मान `y(t)` को फ़ीचर में **शामिल नहीं** किया जाता (वह उस स्टेप का लेबल है), लेकिन उसका इतिहास शामिल होता है:
 
-1. **Target lags**
+1. **लक्ष्य के लैग**
    - `y(t - 1)`
    - `y(t - 2)`
    - `y(t - 3)`
 
-2. **Target difference**
+2. **लक्ष्य का अंतर**
    - `y(t) - y(t - 1)`
 
-3. **Target rolling mean**
-   - ऊपर वाली same rolling window:
+3. **लक्ष्य का रोलिंग मीन**
+   - ऊपर जैसी रोलिंग विंडो:
      - `mean(y[t - 6 ... t])`
 
-इससे model “अगला value पिछले कुछ values और उनके local trend पर निर्भर करता है” जैसे patterns सीख सकता है, जो time-series forecasting में सामान्य है।
+इससे मॉडल “अगला मान पिछले कुछ मानों और उनके स्थानीय रुझान पर निर्भर है” जैसे सामान्य टाइम-सीरीज़ पैटर्न सीखता है।
 
-### Cross-series interactions
+### श्रृंखलाओं के बीच इंटरैक्शन
 
-**अलग-अलग series के बीच relationships** पकड़ने के लिए, हम प्रत्येक **numeric series के pair** (target सहित) के लिए interaction features बनाते हैं:
+**अलग श्रृंखलाओं के संबंध** पकड़ने के लिए लक्ष्य सहित हर **दो संख्यात्मक श्रृंखलाओं की जोड़ी** के इंटरैक्शन फ़ीचर बनते हैं:
 
-- मान लें `v_i(t)` और `v_j(t)` time `t` पर दो series के contemporaneous values हैं।
-- हर ordered pair `(i, j)` जहाँ `i < j`, के लिए हम compute करते हैं:
+- `v_i(t)` और `v_j(t)`, समय `t` पर दो श्रृंखलाओं के समकालीन मान हों।
+- हर क्रमित जोड़ी `(i, j)` के लिए जहाँ `i < j`, गणना करें:
 
-1. **Spread**
+1. **अंतर (स्प्रेड)**
    - `v_i(t) - v_j(t)`
-   - series के बीच relative level differences encode करता है।
+   - श्रृंखलाओं के बीच सापेक्ष स्तर का अंतर दर्शाता है।
 
-2. **Ratio**
+2. **अनुपात**
    - `v_i(t) / v_j(t)`
-   - division by zero से बचने के लिए आवश्यकता होने पर denominator में छोटा epsilon शामिल किया जाता है:
+   - शून्य से भाग देने से बचने के लिए ज़रूरत पड़ने पर हर में छोटा एप्सिलॉन जोड़ा जाता है:
      - `denom = |v_j| < 1e-9 ? sign(v_j) * 1e-9 : v_j`
-   - relative scale और proportionality encode करता है।
+   - सापेक्ष स्केल और आनुपातिक संबंध दिखाता है।
 
-3. **Product**
+3. **गुणनफल**
    - `v_i(t) * v_j(t)`
-   - model को ऐसे “interaction effects” व्यक्त करने देता है जहाँ दोनों series का बड़ा या छोटा होना मायने रखता है।
+   - दोनों श्रृंखलाओं के मान बड़े या छोटे होने का “इंटरैक्शन प्रभाव” दिखाता है।
 
-ये cross-series features केवल individual series values पर निर्भर रहने के बजाय booster के सामने **multi-series structure** स्पष्ट रूप से रखते हैं।
+ये फ़ीचर अलग-अलग मानों पर निर्भर रहने के बजाय बूस्टर को **बहु-श्रृंखला संरचना** स्पष्ट रूप से देते हैं।
 
-### Time index और Fourier features
+### समय सूचकांक और Fourier फ़ीचर
 
-हम time को भी numeric features के रूप में encode करते हैं:
+समय को भी संख्यात्मक फ़ीचर में एनकोड करते हैं:
 
-1. **Time index**
-   - Integer index `t = 0, 1, 2, ...` (row index)।
-   - booster को global trends model करने का सरल तरीका देता है।
+1. **समय सूचकांक**
+   - पूर्णांक सूचकांक `t = 0, 1, 2, ...` (पंक्ति सूचकांक)।
+   - बूस्टर को वैश्विक रुझान मॉडल करने का सरल तरीका देता है।
 
-2. **Fourier features** (cyclical patterns)
-   - दो fixed periods (“rows की संख्या” की units में):
-     - Period 24 (उदाहरण: hourly data में 24 hours)
-     - Period 168 (उदाहरण: 7 days × 24 hours)
-   - प्रत्येक period `P` के लिए हम compute करते हैं:
+2. **Fourier फ़ीचर** (चक्रीय पैटर्न)
+   - दो अवधियाँ (“पंक्तियों की संख्या” में):
+     - अवधि 24 (जैसे घंटेवार डेटा के 24 घंटे)
+     - अवधि 168 (जैसे 7 दिन × 24 घंटे)
+   - हर अवधि `P` के लिए गणना करें:
      - `sin(2πt / P)`
      - `cos(2πt / P)`
-   - यह seasonality/cycles को ऐसे रूप में embed करने का standard तरीका है जिसका tree models भी लाभ उठा सकते हैं।
+   - इससे मौसमीयता/चक्र ऐसे रूप में एनकोड होते हैं जिन्हें ट्री मॉडल भी उपयोग कर सकते हैं।
 
-हर time step `t` के लिए final feature vector है:
+हर समय-बिंदु `t` के लिए अंतिम फ़ीचर वेक्टर:
 
 ```text
 [ exogenous features (current, lags, diff, rolling mean for each series),
@@ -346,15 +418,15 @@ Tree-boosting pipelines input को छोटी multi-variate time series क�
   time index, sin/cos(2πt/24), sin/cos(2πt/168) ]
 ```
 
-### Future-step feature vector (lastFeatureRow)
-`t + 1` (one-step-ahead prediction) के लिए feature vector बनाने में वही feature-building logic उपयोग होती है:
-- Conceptually, next time index को `t_next = n` माना जाता है, जहाँ `n` observed rows की संख्या है।
-- `t_next` पर हर series के “current” values के लिए last observed value (index `n - 1`) फिर से उपयोग किया जाता है।
-- Lags और rolling means observed data के अंतिम `MAX_LAG` / `ROLLING_WINDOW` steps से compute होते हैं।
-- Time encodings में `t_next` time index के रूप में उपयोग होता है।
-- इससे एक single feature vector `lastFeatureRow` मिलता है जो अंतिम observation तक के पूरे history के आधार पर next time step को represent करता है।
+### अगले स्टेप का फ़ीचर वेक्टर (lastFeatureRow)
+उसी फ़ीचर-बिल्डिंग प्रक्रिया से t + 1 (एक स्टेप आगे) का वेक्टर बनता है:
+- अगले समय सूचकांक को t_next = n मानें, जहाँ n देखी गई पंक्तियों की संख्या है।
+- t_next पर हर श्रृंखला के “वर्तमान” मान हेतु अंतिम देखा गया मान (इंडेक्स n - 1) उपयोग होता है।
+- लैग और रोलिंग मीन, देखे गए डेटा के अंतिम MAX_LAG / ROLLING_WINDOW स्टेप से बनते हैं।
+- समय एनकोडिंग में t_next सूचकांक है।
+- इससे अंतिम अवलोकन तक के पूरे इतिहास पर आधारित अगले स्टेप का एकल वेक्टर lastFeatureRow मिलता है।
 
-इसलिए `buildFeatures` function लौटाता है:
+इसलिए buildFeatures फ़ंक्शन लौटाता है:
 ```text
 {
   X: number[][];        // feature matrix for all observed steps
@@ -365,54 +437,95 @@ Tree-boosting pipelines input को छोटी multi-variate time series क�
 
 ---
 
+<!-- FRONTEND_STOCK_EVALUATION:START -->
+## शेयर बाज़ार के परिणाम — ब्राउज़र बेंचमार्क (2026-10-09 तक)
 
-## 🚀 शुरुआत कैसे करें
+| सेक्टर | मॉडल | पिछला 16-स्टेप MAPE ↓ | हाल का 16-स्टेप MAPE ↓ | रोलिंग 1-स्टेप MAPE ↓ |
+| --- | --- | ---: | ---: | ---: |
+| वाहन निर्माता | xgboost | 7.55% | 4.08% | 1.55% |
+| वाहन निर्माता | lightgbm | 2.58% | 4.74% | 1.71% |
+| वाहन निर्माता | varma | 11.82% | 3.67% | 1.81% |
+| वाहन निर्माता | chronos | 1.86% | 3.20% | 1.07% |
+| वाहन निर्माता | ridge | 2.69% | 6.78% | 1.47% |
+| वाहन निर्माता | last_close | 2.26% | 2.70% | 1.09% |
+| बैंक | xgboost | 3.56% | 2.27% | 1.66% |
+| बैंक | lightgbm | 3.13% | 1.89% | 1.60% |
+| बैंक | varma | 4.21% | 12.66% | 1.85% |
+| बैंक | chronos | 3.68% | 4.60% | 1.78% |
+| बैंक | ridge | 4.99% | 1.91% | 1.66% |
+| बैंक | last_close | 4.06% | 2.84% | 1.46% |
+| इलेक्ट्रॉनिक्स | xgboost | 3.67% | 5.16% | 1.40% |
+| इलेक्ट्रॉनिक्स | lightgbm | 3.58% | 1.09% | 1.38% |
+| इलेक्ट्रॉनिक्स | varma | 5.13% | 21.04% | 1.81% |
+| इलेक्ट्रॉनिक्स | chronos | 3.11% | 3.09% | 1.36% |
+| इलेक्ट्रॉनिक्स | ridge | 7.11% | 5.62% | 1.72% |
+| इलेक्ट्रॉनिक्स | last_close | 3.04% | 1.56% | 1.30% |
+| दूरसंचार | xgboost | 5.23% | 1.44% | 1.28% |
+| दूरसंचार | lightgbm | 5.96% | 1.47% | 1.47% |
+| दूरसंचार | varma | 13.19% | 14.50% | 1.41% |
+| दूरसंचार | chronos | 5.43% | 3.09% | 1.08% |
+| दूरसंचार | ridge | 7.14% | 1.65% | 1.13% |
+| दूरसंचार | last_close | 3.44% | 2.83% | 0.88% |
+| व्यापारिक कंपनियाँ | xgboost | 3.08% | 4.58% | 1.41% |
+| व्यापारिक कंपनियाँ | lightgbm | 2.78% | 4.40% | 1.48% |
+| व्यापारिक कंपनियाँ | varma | 9.75% | 1.05% | 2.36% |
+| व्यापारिक कंपनियाँ | chronos | 3.14% | 3.45% | 1.27% |
+| व्यापारिक कंपनियाँ | ridge | 2.72% | 7.36% | 1.69% |
+| व्यापारिक कंपनियाँ | last_close | 2.46% | 4.63% | 1.32% |
+### सीधे 16-स्टेप की तुलना (5 सेक्टर, 2 होल्डआउट; 2026-10-09 तक)
 
-### 1. पूर्वापेक्षाएँ
-- [Docker Compose](https://docs.docker.com/compose/)
+| मॉडल | रिकर्सिव कीमत MAPE ↓ | डायरेक्ट कीमत MAPE ↓ | डायरेक्ट लॉग-रिटर्न MAPE ↓ | अंतिम क्लोज़ MAPE ↓ |
+| --- | ---: | ---: | ---: | ---: |
+| xgboost | 4.06% | 3.46% | 4.59% | 2.98% |
+| lightgbm | 3.16% | 3.75% | 4.49% | 2.98% |
+| ridge | 4.80% | 4.31% | 4.01% | 2.98% |
+<!-- FRONTEND_STOCK_EVALUATION:END -->
 
-### 2. सभी services build और start करें:
+## शेयर बाज़ार के परिणाम — अलग इंजन बेंचमार्क
 
-```bash
+<!-- STOCK_MULTIVARIATE:START -->
+| सेक्टर | मॉडल | लंबा एकल-श्रृंखला MAPE ↓ | लंबा मल्टीवेरिएट MAPE ↓ | हाल का एकल-श्रृंखला MAPE ↓ | हाल का मल्टीवेरिएट MAPE ↓ |
+| --- | --- | ---: | ---: | ---: | ---: |
+| वाहन निर्माता | ridge | 1.48% | 1.52% | 1.07% | 1.13% |
+| वाहन निर्माता | xgboost | 1.67% | 1.64% | 1.41% | 1.34% |
+| वाहन निर्माता | lightgbm | 1.60% | 1.59% | 1.33% | 1.34% |
+| बैंक | ridge | 1.63% | 1.66% | 1.47% | 1.52% |
+| बैंक | xgboost | 1.77% | 1.80% | 1.66% | 1.61% |
+| बैंक | lightgbm | 1.76% | 1.77% | 1.49% | 1.55% |
+| इलेक्ट्रॉनिक्स | ridge | 1.69% | 1.70% | 1.27% | 1.35% |
+| इलेक्ट्रॉनिक्स | xgboost | 1.83% | 1.91% | 1.45% | 1.50% |
+| इलेक्ट्रॉनिक्स | lightgbm | 1.79% | 1.80% | 1.34% | 1.41% |
+| दूरसंचार | ridge | 0.81% | 0.82% | 0.90% | 0.87% |
+| दूरसंचार | xgboost | 0.85% | 0.87% | 1.04% | 1.01% |
+| दूरसंचार | lightgbm | 0.83% | 0.85% | 0.97% | 0.91% |
+| व्यापारिक कंपनियाँ | ridge | 1.63% | 1.63% | 1.39% | 1.41% |
+| व्यापारिक कंपनियाँ | xgboost | 1.77% | 1.69% | 1.50% | 1.53% |
+| व्यापारिक कंपनियाँ | lightgbm | 1.69% | 1.66% | 1.34% | 1.43% |
+<!-- STOCK_MULTIVARIATE:END -->
 
-# Build the image
-docker compose build
-
-# Run the container
-docker compose up
-
-```
-
-### 3. टेस्ट:
-```bash
-docker compose \
--f docker-compose.test.yml up \
---build --exit-code-from \
-frontend_test
-```
 
 ---
 
-## AirPassengers Benchmark
+## AirPassengers बेंचमार्क
 
-Fair 16-step protocol और paper-comparison rules के लिए [`BENCHMARKS.md`](./BENCHMARKS.md) देखें।
+निष्पक्ष 16-स्टेप प्रोटोकॉल और शोधपत्र से तुलना के नियमों के लिए [`BENCHMARKS.md`](./BENCHMARKS.md) देखें।
 
-Repository में AirPassengers dataset और classic monthly time-series dataset पर model behavior जाँचने के लिए benchmark command शामिल है।
+रिपॉज़िटरी में AirPassengers डेटासेट और इस क्लासिक मासिक टाइम-सीरीज़ पर मॉडल की जाँच के लिए बेंचमार्क कमांड है।
 
-Docker Compose के साथ benchmark चलाएँ:
+Docker Compose से बेंचमार्क चलाएँ:
 
 ```bash
 docker compose -f docker-compose.test.yml run --rm air_passengers_fair_benchmark
 ```
 
-JSON output:
+JSON आउटपुट:
 
 ```bash
 docker compose -f docker-compose.test.yml run --rm air_passengers_fair_benchmark \
   sh -lc 'npm --prefix frontend/app ci && node scripts/benchmark-air-passengers-fair.mjs --algorithm xgboost --json'
 ```
 
-Seasonal naive baseline:
+मौसमी नैव बेसलाइन:
 
 ```bash
 docker compose -f docker-compose.test.yml run --rm air_passengers_fair_benchmark \
@@ -420,16 +533,14 @@ docker compose -f docker-compose.test.yml run --rm air_passengers_fair_benchmark
 ```
 
 
-### 16-step holdout benchmark
+### 16-स्टेप होल्डआउट बेंचमार्क
 
-नीचे दिए गए results हर comparable model के लिए समान fixed-origin evaluation protocol उपयोग करते हैं:
+- प्रशिक्षण: AirPassengers के पहले 128 अवलोकन
+- होल्डआउट: अगले 16 अवलोकन
+- पूर्वानुमान के दौरान होल्डआउट का कोई वास्तविक लक्ष्य मान वापस नहीं दिया जाता
+- सामान्य पॉइंट मेट्रिक्स: MAE, RMSE, MAPE, sMAPE और MASE
 
-- train: पहले 128 AirPassengers observations
-- holdout: अगले 16 observations
-- forecasting के दौरान कोई holdout target value वापस feed नहीं की जाती
-- common point metrics: MAE, RMSE, MAPE, sMAPE और MASE
-
-Benchmark reproduce करें:
+बेंचमार्क दोहराने के लिए:
 
 ```bash
 docker compose -f docker-compose.test.yml run --rm \
@@ -440,14 +551,16 @@ docker compose -f docker-compose.test.yml run --rm \
   '
 ```
 
-LightGBM-only AirPassengers evaluation:
+केवल LightGBM से AirPassengers मूल्यांकन:
 
 ```bash
 docker compose -f docker-compose.test.yml run --rm \
   lightgbm_air_passengers_benchmark
 ```
 
-यह समान 128/16 fixed-origin protocol को `--algorithm lightgbm` के साथ चलाता है, इसलिए result अन्य AirPassengers rows से सीधे comparable है।
+यह `--algorithm lightgbm` के साथ वही 128/16 प्रोटोकॉल चलाता है, इसलिए परिणाम AirPassengers की अन्य पंक्तियों से सीधे तुलनीय है।
+
+VARMA को N/A दिखाया गया है, क्योंकि AirPassengers यूनिवेरिएट है जबकि इस रिपॉज़िटरी के प्रयोगात्मक VARMA को कम-से-कम दो संख्यात्मक श्रृंखलाएँ चाहिए। मल्टीवेरिएट और शोधपत्र तुलना प्रोटोकॉल के लिए [`BENCHMARKS.md`](./BENCHMARKS.md) देखें।
 
 # लाइसेंस
 - Apache License 2.0
