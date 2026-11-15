@@ -402,11 +402,9 @@ export default function App() {
         style={{
           width: "100%",
           maxWidth: 960,
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: 12,
+          flexDirection: "column",
+          alignItems: "stretch",
+          gap: 8,
           marginBottom: 8,
         }}
       >
@@ -422,13 +420,34 @@ export default function App() {
             border: "1px solid #5a5a5a",
             background: "#111827",
             color: "#e5e7eb",
-            flex: 1,
+            width: "100%",
             minWidth: 0,
           }}
         />
-        <Text style={{ color: "#cbd5e1", fontSize: 15, flexShrink: 1 }}>
-          Status: {status}
-        </Text>
+        <div className="forecast-data-secondary">
+          <div className="forecast-sample-downloads" aria-label="Download sample files">
+            <span className="forecast-sample-label">Samples:</span>
+            <a
+              className="forecast-sample-download"
+              href={`${import.meta.env.BASE_URL}sample_data.csv`}
+              download="sample_data.csv"
+              aria-label="Download sample CSV"
+            >
+              CSV
+            </a>
+            <a
+              className="forecast-sample-download"
+              href={`${import.meta.env.BASE_URL}sample_data.xlsx`}
+              download="sample_data.xlsx"
+              aria-label="Download sample XLSX"
+            >
+              XLSX
+            </a>
+          </div>
+          <Text style={{ color: "#cbd5e1", fontSize: 14, flexShrink: 1 }}>
+            Status: {status}
+          </Text>
+        </div>
       </View>
 
       </section>

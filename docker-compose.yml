@@ -9,8 +9,8 @@ services:
     tty: true
     volumes:
       - ./frontend/app:/app
-      # Serve the repository sample in Vite dev without duplicating the CSV.
       - ./data/sample_data.csv:/app/public/sample_data.csv:ro
+      - ./data/sample_data.xlsx:/app/public/sample_data.xlsx:ro
       - /app/node_modules
     ports:
       - "5173:5173"  # Vite
