@@ -31,7 +31,7 @@ jobs:
     timeout-minutes: 180
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           persist-credentials: true
 
@@ -58,7 +58,7 @@ jobs:
       - name: Restore TimesFM 2.5 ONNX model cache
         id: timesfm_cache
         if: steps.stock.outputs.run == 'true'
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: .cache/timesfm-2.5.onnx
           key: timesfm-2.5-pdufour-transformers-onnx-v1
@@ -144,7 +144,7 @@ jobs:
 
       - name: Preserve diagnostic stock report
         if: always() && steps.stock.outputs.run == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: all-eight-daily-${{ github.run_id }}
           path: |
