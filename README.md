@@ -145,7 +145,7 @@ The app supports six locally fitted forecasting modes:
 ---
 
 <!-- ALL_MODEL_EVALUATION:START -->
-### All eight models — matched browser holdout (through 2026-11-19)
+### All eight models — matched browser holdout (through 2026-11-20)
 
 Each sector uses 256 historical closes to predict the same next 16 sessions. Lower MAPE is better.
 The five supervised models use **Direct price** (the browser default); VARMA uses joint recursive forecasting;
@@ -153,17 +153,17 @@ Chronos-2 and TimesFM 2.5 use the selected target series only. Each is run in Ch
 
 | Model | Automakers MAPE ↓ | Banks MAPE ↓ | Electronics MAPE ↓ | Telecom MAPE ↓ | Trading houses MAPE ↓ | Mean MAPE ↓ | Mean sMAPE ↓ |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| xgboost | 7.84% | 2.64% | 9.66% | 2.56% | 6.12% | 5.76% | 6.04% |
-| xgboost_bag2 | 7.70% | 3.51% | 8.41% | 2.75% | 6.53% | 5.78% | 6.02% |
-| lightgbm | 8.01% | 2.46% | 7.66% | 3.16% | 6.73% | 5.60% | 5.84% |
-| lightgbm_bag2 | 8.33% | 3.34% | 6.68% | 3.50% | 6.88% | 5.75% | 5.97% |
-| ridge | 6.71% | 3.15% | 6.39% | 2.67% | 3.35% | 4.45% | 4.58% |
-| varma | 9.25% | 13.90% | 10.20% | 7.10% | 2.98% | 8.69% | 8.82% |
-| chronos | 6.84% | 2.96% | 3.00% | 3.50% | 6.44% | 4.55% | 4.67% |
-| timesfm | 6.96% | 2.73% | 3.75% | 3.59% | 6.15% | 4.64% | 4.76% |
-| last_close | 6.90% | 2.38% | 4.08% | 3.75% | 4.31% | 4.29% | 4.37% |
+| xgboost | 8.55% | 3.01% | 9.78% | 2.31% | 6.43% | 6.02% | 6.30% |
+| xgboost_bag2 | 8.36% | 4.01% | 8.88% | 2.11% | 6.46% | 5.96% | 6.22% |
+| lightgbm | 8.96% | 3.58% | 8.23% | 2.68% | 6.99% | 6.09% | 6.36% |
+| lightgbm_bag2 | 8.83% | 4.23% | 7.16% | 2.96% | 6.81% | 6.00% | 6.24% |
+| ridge | 7.16% | 3.61% | 7.53% | 2.33% | 3.80% | 4.89% | 5.05% |
+| varma | 16.00% | 3.52% | 22.33% | 7.15% | 16.07% | 13.01% | 14.53% |
+| chronos | 8.21% | 3.20% | 3.68% | 2.37% | 6.86% | 4.86% | 5.03% |
+| timesfm | 8.22% | 3.20% | 4.99% | 2.95% | 7.19% | 5.31% | 5.49% |
+| last_close | 8.08% | 3.06% | 5.56% | 2.91% | 5.30% | 4.98% | 5.13% |
 
-Protocol: `real-browser-recent-16step-all-eight-v1`; input SHA256: `36feb7a3cbe4…`; source SHA256: `e2e34fbc83b1…`.
+Protocol: `real-browser-recent-16step-all-eight-v1`; input SHA256: `3f741684e737…`; source SHA256: `e2e34fbc83b1…`.
 Scores are retrospective and depend on the evaluated snapshot, not a live prediction audit.
 [Method and reproduction](docs/ALL_MODEL_EVALUATION.md). Full MAE/RMSE, predictions and elapsed times: [`reports/stocks/all-models.json`](reports/stocks/all-models.json).
 <!-- ALL_MODEL_EVALUATION:END -->
